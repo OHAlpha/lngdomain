@@ -1,0 +1,2 @@
+module Prp::NavigationHelper
+end

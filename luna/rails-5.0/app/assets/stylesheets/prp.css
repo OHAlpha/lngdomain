@@ -1,0 +1,17 @@
+/*
+ *= require application
+ * require_tree prp
+ *= require_self
+ */
+
+body {
+  background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+p {
+  color: #777;
+}

@@ -1,0 +1,19 @@
+development:
+  one_wolf_domain:
+  - one-wolf.mydomain-dev.ohalpha.alpha-rails-dev.io
+  - one-wolf-mydomain-dev
+  prp_domain:
+  - prp.mydomain-dev.ohalpha.alpha-rails-dev.io
+  - prp-mydomain-dev
+  ellestree_domain:
+  - ellestree.mydomain-dev.ohalpha.alpha-rails-dev.io
+  - ellestree-mydomain-dev
+
+production:
+  one_wolf_domain: one-wolf.com
+  prp_domain: prp.one-wolf.com
+  ellestree_domain: ellestree.com
+
+dev_domain:
+- mydomain-dev.ohalpha.alpha-rails-dev.io
+- mydomain-dev

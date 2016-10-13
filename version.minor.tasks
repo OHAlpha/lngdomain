@@ -1,0 +1,12 @@
+MYDM Version Luna 0.0 Tasks
+
+I.   Setup domains
+I.a    Create rails project
+I.b    Configure routes
+I.b.0    Create domain settings
+I.b.1    Create routes constraint class
+I.b.2    Route domain roots
+I.c    Differentiate domains
+I.c.0    Create controller for each domain in separate module
+I.c.1    Differentiate layouts for each domain
+I.c.2    Set layout for each domain's controller
