@@ -1,0 +1,9 @@
+MYDM-PRP-BMKS Version Chronos 0 Tasks
+
+I    Develop UI
+II   Develop backend base
+III  Develop basic CRUD UI functions
+III.a  Develop index and search functions
+III.b  Develop create function
+III.c  Develop view function
+III.d  Develop create, view, modify and delete functions

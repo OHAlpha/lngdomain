@@ -23,6 +23,20 @@ Rails.application.routes.draw do
   constraints Constraints::DomainConstraint.new(MyDomain.domains[Rails.env]["prp_domain"]) do
     scope module: 'prp' do
       root 'navigation#home'
+      scope '/bookmarks', module: 'bookmarks/bookmarks' do
+        get 'export'
+        get 'bookmarks'
+        get 'home'
+        get 'index'
+        get 'show'
+        get 'search'
+        get 'create'
+        get 'new'
+        get 'edit'
+        get 'update'
+        get 'delete'
+        get 'widget'
+      end
     end
   end
   
@@ -40,7 +54,23 @@ Rails.application.routes.draw do
   end
 
   namespace :prp do
-    get 'navigation/home'
+    namespace :navigation do
+      get 'home'
+    end
+    namespace :bookmarks do
+      get 'export'
+      get 'bookmarks'
+      get 'home'
+      get 'index'
+      get 'show'
+      get 'search'
+      get 'create'
+      get 'new'
+      get 'edit'
+      get 'update'
+      get 'delete'
+      get 'widget'
+    end
   end
 
   namespace :one_wolf do

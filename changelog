@@ -1,3 +1,6 @@
 CHANGELOG
 
-
+==  13/10/2016 15:19 Created Prp::Bookmarks::Bookmarks controller and model
+==  13/10/2016 15:54 Routed /bookmarks to Prp::Bookmarks::BookmarksController
+==  13/10/2016 15:54 Set Prp::Bookmarks::BookmarksController to iherit from Prp::NavigationController
+==  13/10/2016 16:07 Created Prp::Bookmarks::{Folder,Category,FolderMember,CategoryMember,Subfolder} models

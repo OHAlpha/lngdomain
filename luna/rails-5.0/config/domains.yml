@@ -2,9 +2,7 @@ development:
   one_wolf_domain:
   - one-wolf.mydomain-dev.ohalpha.alpha-rails-dev.io
   - one-wolf-mydomain-dev
-  prp_domain:
-  - prp.mydomain-dev.ohalpha.alpha-rails-dev.io
-  - prp-mydomain-dev
+  prp_domain: localhost
   ellestree_domain:
   - ellestree.mydomain-dev.ohalpha.alpha-rails-dev.io
   - ellestree-mydomain-dev
