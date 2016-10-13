@@ -1,0 +1,2 @@
+module EllesTree::NavigationHelper
+end

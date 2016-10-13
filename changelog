@@ -1,0 +1,31 @@
+CHANGELOG
+
+<D  12/10/2016 09:33 Created rails 5 project
+==  12/10/2016 09:34 Created config/settings.yml
+==  12/10/2016 09:34 Added domain values to config/settings.yml
+==  12/10/2016 09:38 Created and implemented lib/constraints/domain_constraint.rb
+==  12/10/2016 09:41 Changed domain key names to exchange '-' with '_'
+==  12/10/2016 10:00 Routed root to each domain's controller within domain route constraints
+==  12/10/2016 15:11 Added loading of domain settings to config/application.rb due to loading issues
+==  12/10/2016 15:11 Renamed settings.yml to domains.yml
+==  12/10/2016 15:16 Added loading lib files to application.rb
+==  12/10/2016 15:18 Changed routes file to get domain information from constant set in application.rb
+==  12/10/2016 15:37 Changed require to reuire_relative in application.rb
+==  12/10/2016 15:37 Changed module names to underscore notation in routes file
+==  12/10/2016 15:37 Created OneWolf::NavigationController with home route
+==  12/10/2016 15:40 Created Prp::NavigationController and EllesTree::NavigationController with home routes
+==  12/10/2016 15:42 Created dev_domain constraint in routes and placed auto generated routes inside
+=D  12/10/2016 --:-- Created layouts one-Wolf.rb, prp.rb and elles_tree.rb
+==  13/10/2016 07:55 Created javascript and stylesheet index files for one_wolf, prp and elles_tree
+==  13/10/2016 07:56 Used the javascript and stylesheet index files for one_wolf, prp and elles_tree in their layout files
+==  13/10/2016 07:59 Removed require_tree from application.css
+==  13/10/2016 08:00 Removed require_tree from application.js
+==  13/10/2016 08:25 Added require directives and basic styling to stylesheet index files
+==  13/10/2016 08:29 Set layouts in each domain's controller
+==  13/10/2016 08:37 Created navigation controller to test root route
+==  13/10/2016 08:39 Added routes for general domain
+==  13/10/2016 08:42 Changed domain setting retrieval in routes file to use string keys instead of symbol keys
+==  13/10/2016 08:57 Fixed indentation in domains.yml and changed load method in application.rb
+==  13/10/2016 09:09 Added index files to config/initializers/assets.rb
+<M  13/10/2016 09:26 Removed require_tree directives from css indices
+==  13/10/2016 09:46 Changed domain constraint to use env["SERVER_NAME"] instead of domain

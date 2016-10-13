@@ -9,3 +9,10 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+Rails.application.config.assets.precompile += %w( one_wolf.css )
+Rails.application.config.assets.precompile += %w( prp.css )
+Rails.application.config.assets.precompile += %w( elles_tree.css )
+Rails.application.config.assets.precompile += %w( one_wolf.js )
+Rails.application.config.assets.precompile += %w( prp.js )
+Rails.application.config.assets.precompile += %w( elles_tree.js )

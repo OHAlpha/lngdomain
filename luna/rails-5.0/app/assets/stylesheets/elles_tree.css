@@ -1,0 +1,17 @@
+/*
+ *= require application
+ * require_tree elles_tree
+ *= require_self
+ */
+
+body {
+  background-color: #daf7dc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #9b489b;
+}
+
+p {
+  color: #70566d;
+}
