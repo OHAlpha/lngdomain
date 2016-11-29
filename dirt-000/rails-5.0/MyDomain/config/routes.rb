@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  @forced_url = 'one-wolf.com'
+  
   def nav
     get 'home',      to: 'navigation#home'
     get 'about',     to: 'navigation#about'
@@ -29,7 +31,7 @@ Rails.application.routes.draw do
     get 'media',     to: 'navigation#media'
   end
   
-  constraints Constraints::DomainConstraint.new(MyDomain.domains[:dev_domain]) do
+  constraints Constraints::DomainConstraint.new('dev',MyDomain.domains[:dev_domain],@forced_url) do
     namespace :elles_tree do
       nav
     end
@@ -39,14 +41,14 @@ Rails.application.routes.draw do
     end
   end
   
-  constraints Constraints::DomainConstraint.new(MyDomain.domains[Rails.env]["one_wolf_domain"]) do
+  constraints Constraints::DomainConstraint.new('one-wolf',MyDomain.domains[Rails.env]["one_wolf_domain"],@forced_url) do
     scope module: 'one_wolf' do
       root 'navigation#home'
       nav
     end
   end
   
-  constraints Constraints::DomainConstraint.new(MyDomain.domains[Rails.env]["ellestree_domain"]) do
+  constraints Constraints::DomainConstraint.new('ellestree',MyDomain.domains[Rails.env]["ellestree_domain"],@forced_url) do
     scope module: 'elles_tree' do
       root 'navigation#home'
       nav

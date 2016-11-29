@@ -2,9 +2,11 @@ development:
   one_wolf_domain:
   - one-wolf.mydomain-dev.ohalpha.alpha-rails-dev.io
   - one-wolf-mydomain-dev
+  - one-wolf.com
   ellestree_domain:
   - ellestree.mydomain-dev.ohalpha.alpha-rails-dev.io
   - ellestree-mydomain-dev
+  - ellestree.com
 
 production:
   one_wolf_domain: one-wolf.com
