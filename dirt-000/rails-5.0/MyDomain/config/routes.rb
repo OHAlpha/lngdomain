@@ -1,0 +1,67 @@
+Rails.application.routes.draw do
+  
+  def nav
+    get 'home',      to: 'navigation#home'
+    get 'about',     to: 'navigation#about'
+    get 'contact',   to: 'navigation#contact'
+    get 'feedback',  to: 'navigation#feedback'
+    get 'calendar',  to: 'navigation#calendar'
+    get 'popular',   to: 'navigation#popular'
+    get 'recent',    to: 'navigation#recent'
+    get 'news',      to: 'navigation#news'
+    get 'faq',       to: 'navigation#faq'
+    get 'index',     to: 'navigation#index'
+    get 'sitemap',   to: 'navigation#sitemap'
+    get 'search',    to: 'navigation#search'
+    get 'results',   to: 'navigation#results'
+    get 'links',     to: 'navigation#links'
+    get 'policy',    to: 'navigation#policy'
+    get 'privacy',   to: 'navigation#privacy'
+    get 'copyright', to: 'navigation#copyright'
+    get 'subscribe', to: 'navigation#subscribe'
+    get 'services',  to: 'navigation#services'
+    get 'products',  to: 'navigation#products'
+    get 'portfolio', to: 'navigation#portfolio'
+    get 'resources', to: 'navigation#resources'
+    get 'store',     to: 'navigation#store'
+    get 'blog',      to: 'navigation#blog'
+    get 'gallery',   to: 'navigation#gallery'
+    get 'media',     to: 'navigation#media'
+  end
+  
+  constraints Constraints::DomainConstraint.new(MyDomain.domains[:dev_domain]) do
+    namespace :elles_tree do
+      nav
+    end
+    
+    namespace :one_wolf do
+      nav
+    end
+  end
+  
+  constraints Constraints::DomainConstraint.new(MyDomain.domains[Rails.env]["one_wolf_domain"]) do
+    scope module: 'one_wolf' do
+      root 'navigation#home'
+      nav
+    end
+  end
+  
+  constraints Constraints::DomainConstraint.new(MyDomain.domains[Rails.env]["ellestree_domain"]) do
+    scope module: 'elles_tree' do
+      root 'navigation#home'
+      nav
+    end
+  end
+  
+  root 'navigation#home'
+  nav
+  
+  namespace :one_wolf do
+    nav
+  end
+  
+  namespace :ellestree do
+    nav
+  end
+  
+end

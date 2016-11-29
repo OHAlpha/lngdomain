@@ -1,0 +1,2 @@
+module OneWolf::NavigationHelper
+end
