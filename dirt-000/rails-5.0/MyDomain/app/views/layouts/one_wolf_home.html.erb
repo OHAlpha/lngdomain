@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyDomain</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'one_wolf_home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'one_wolf_home', 'data-turbolinks-track': 'reload' %>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css', rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/fontawesome-webfont.svg'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/fontawesome-webfont.woff'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/fontawesome-webfont.eot'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/FontAwesome.otf'>
+    <script>
+$( document ).ready(function () {
+  //var html_string = JST['templates/one_wolf_home']({});
+  //console.log(html_string);
+  //$('body').html(html_string);
+});
+    </script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

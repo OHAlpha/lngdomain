@@ -1,5 +1,5 @@
 class OneWolf::NavigationController < ApplicationController
-  layout 'one_wolf'
+  layout :resolve_layout
   def home
   end
 
@@ -54,6 +54,21 @@ class OneWolf::NavigationController < ApplicationController
   def subscribe
   end
 
+  def join
+  end
+
+  def signup
+  end
+
+  def signin
+  end
+
+  def signout
+  end
+
+  def leave
+  end
+
   def services
   end
 
@@ -76,5 +91,16 @@ class OneWolf::NavigationController < ApplicationController
   end
 
   def media
+  end
+  
+  private
+
+  def resolve_layout
+    case action_name
+    when "home"
+      "one_wolf_home"
+    else
+      "one_wolf"
+    end
   end
 end

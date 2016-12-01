@@ -1,14 +1,15 @@
 #!/bin/bash
 
 nav() {
-	rails generate controller $1::Navigation \
+	rails generate controller ${1}Navigation \
 		home about contact feedback calendar \
 		popular recent news faq \
 		index sitemap search results links \
 		policy privacy copyright \
-		subscribe \
+		subscribe join signup signin signout leave \
 		services products portfolio resources store blog gallery media
 }
 
-nav OneWolf
-nav Ellestree
+nav ''
+nav OneWolf::
+nav Ellestree::
