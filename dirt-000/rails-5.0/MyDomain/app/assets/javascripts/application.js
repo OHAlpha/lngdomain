@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jade/runtime
+// require jade/runtime
 //= require_tree .

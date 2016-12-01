@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-  @forced_url = 'one-wolf.com'
+  root 'one_wolf/navigation#home'
+  @forced_url = nil
   
   def nav
     get 'home',      to: 'navigation#home'
