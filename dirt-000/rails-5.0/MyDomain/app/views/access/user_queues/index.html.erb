@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Access User Queues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Unom</th>
+      <th>Email</th>
+      <th>Salt</th>
+      <th>Iterations</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @access_user_queues.each do |access_user_queue| %>
+      <tr>
+        <td><%= access_user_queue.unom %></td>
+        <td><%= access_user_queue.email %></td>
+        <td><%= access_user_queue.salt %></td>
+        <td><%= access_user_queue.iterations %></td>
+        <td><%= link_to 'Show', access_user_queue %></td>
+        <td><%= link_to 'Edit', edit_access_user_queue_path(access_user_queue) %></td>
+        <td><%= link_to 'Destroy', access_user_queue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Access User Queue', new_access_user_queue_path %>

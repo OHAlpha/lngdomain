@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require forge.min
+//= require conversions
 // require jade/runtime
 // require_tree ./templates
 // require templates/one_wolf_home.jst

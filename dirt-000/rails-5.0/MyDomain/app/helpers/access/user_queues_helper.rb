@@ -1,0 +1,2 @@
+module Access::UserQueuesHelper
+end

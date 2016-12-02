@@ -42,7 +42,7 @@ class Access::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @access_user.update(access_user_params)
-        format.html { redirect_to @access_user, notice: 'User was successfully updated.' }
+        format.html { redirect_to user_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @access_user }
       else
         format.html { render :edit }
@@ -64,11 +64,15 @@ class Access::UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_access_user
-      @access_user = Access::User.find(params[:id])
+      if not params[:id].nil?
+        @access_user = Access::User.find(params[:id])
+      elsif not session[:current_user_id].nil?
+        @access_user = Access::User.find(session[:current_user_id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def access_user_params
-      params.require(:access_user).permit(:unom, :email, :salt, :hashkey, :iterations, :passhash, :fnom, :mnoms, :lnom)
+      params.require(:access_user).permit(:unom, :email, :salt, :hashkey, :iterations, :passhash, :fnom, :mnoms, :lnom, :dnom, pcol_attributes: [:id, :color], scol_attributes: [:id, :color], tcol_attributes: [:id, :color])
     end
 end

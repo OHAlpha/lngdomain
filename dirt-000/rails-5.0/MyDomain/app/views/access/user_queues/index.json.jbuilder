@@ -1,0 +1,1 @@
+json.array! @access_user_queues, partial: 'access_user_queues/access_user_queue', as: :access_user_queue

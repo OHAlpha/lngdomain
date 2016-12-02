@@ -1,25 +1,32 @@
 Rails.application.routes.draw do
   
+  scope module: 'access' do
+    resource :user, path_names: { edit: 'settings' }
+  end
+  
+  namespace :access do
+    resources :user_queues
+  end
+=begin
+  namespace :access do
+    resources :user_queues
+  end
   namespace :access do
     resources :users
   end
-  get 'access/valid_unom'
-
-  get 'access/valid_email'
-
-  get 'access/new_user'
-
-  get 'access/cancel_new_user'
-
-  get 'access/register'
-
-  get 'access/user_salt'
-
-  get 'access/login'
-
-  get 'access/logout'
-
-  get 'access/unregister'
+=end
+  
+  namespace :access do
+    post 'valid_unom'
+    post 'valid_email'
+    post 'new_user'
+    post 'cancel_new_user'
+    post 'register'
+    post 'user_salt'
+    post 'login'
+    post 'logout'
+    post 'unregister'
+  end
 
   @forced_url = nil
   
@@ -30,22 +37,22 @@ Rails.application.routes.draw do
       'popular','recent','news','calendar',
       'index','sitemap','search','links',
       'policy','privacy','copyright',
-      'subscribe','join','signup','signin','signout','leave',
+      'subscribe','join', 'welcome','signup','signin','signout','leave',
       'services','products','portfolio','resources','store','blog','gallery','media',
     ].each do |path|
-      get path, to: 'navigation#'+path if only.include? path
+      get path, to: 'navigation#'+path if not only.any? or only.include? path
     end
     [
       'results',
       'subscribe',
     ].each do |path|
-      post path, to: 'navigation#'+path if only.include? path
+      post path, to: 'navigation#'+path if not only.any? or only.include? path
     end
   end
   
   scope module: 'one_wolf' do
     root 'navigation#home'
-    nav 'home','about','join'
+    nav 'home','about','join', 'welcome', 'signup', 'signin', 'signout', 'leave'
     get 'games', to: 'games#home'
   end
   

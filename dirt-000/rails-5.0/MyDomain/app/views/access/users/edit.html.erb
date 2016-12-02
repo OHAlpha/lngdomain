@@ -1,6 +1,67 @@
-<h1>Editing Access User</h1>
+<h1>User Settings</h1>
 
-<%= render 'form', access_user: @access_user %>
+<p>Users cannot at this time change their user name or email. The ability to do so will come soon.</p>
 
-<%= link_to 'Show', @access_user %> |
-<%= link_to 'Back', access_users_path %>
+<p>Username: <%= @access_user.unom %></p>
+<p>Email: <%= @access_user.email %></p>
+
+<% def ifnonnil(v) %>
+<% if not v.nil? %>
+<% v %>
+<% else %>
+<% '' %>
+<% end %>
+<% end %>
+
+<%= form_for @access_user, url: '/user' do |f| %>
+  <% if @access_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@access_user.errors.count, "error") %> prohibited this access_user from being saved:</h2>
+
+      <ul>
+      <% @access_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table>
+  <tr>
+    <td><%= f.label :unom, "First Name:" %></td>
+    <td><%= f.text_field :unom %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :mnoms, "Middle Name(s):" %></td>
+    <td><%= f.text_field :mnoms %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :lnom, "Last Name:" %></td>
+    <td><%= f.text_field :lnom %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :dnom, "Display Name:" %></td>
+    <td><%= f.text_field :dnom %></td>
+  </tr>
+  <tr>
+    <%= f.fields_for :pcol do |color_form| %>
+    <td><%= color_form.label :color, "Primary Color:" %></td>
+    <td><%= color_form.text_field :color %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <%= f.fields_for :scol do |color_form| %>
+    <td><%= color_form.label :color, "Secondary Color:" %></td>
+    <td><%= color_form.text_field :color %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <%= f.fields_for :tcol do |color_form| %>
+    <td><%= color_form.label :color, "Tertiary Color:" %></td>
+    <td><%= color_form.text_field :color %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <td><%= submit_tag( 'Save', id: 'submit' ) %></td>
+  </tr>
+</table>
+<% end %>

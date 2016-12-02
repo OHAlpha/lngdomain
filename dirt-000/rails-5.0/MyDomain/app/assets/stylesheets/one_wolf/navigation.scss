@@ -25,3 +25,26 @@ body {
     }
   }
 }
+
+form {
+    padding: 1em;
+    margin: .5em;
+    background-color: $form-bgcol;
+    border-radius: .5em;
+    color: #333;
+    display: block;
+    &.hidden {
+        display: none;
+    }
+    .message {
+        visibility: hidden;
+        &.ok {
+            color: green;
+            visibility: visible;
+        }
+        &.bad {
+            color: red;
+            visibility: visible;
+        }
+    }
+}

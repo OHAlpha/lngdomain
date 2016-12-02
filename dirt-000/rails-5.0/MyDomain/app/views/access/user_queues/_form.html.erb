@@ -1,0 +1,37 @@
+<%= form_for(access_user_queue) do |f| %>
+  <% if access_user_queue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(access_user_queue.errors.count, "error") %> prohibited this access_user_queue from being saved:</h2>
+
+      <ul>
+      <% access_user_queue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :unom %>
+    <%= f.text_field :unom %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :salt %>
+    <%= f.text_field :salt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :iterations %>
+    <%= f.number_field :iterations %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

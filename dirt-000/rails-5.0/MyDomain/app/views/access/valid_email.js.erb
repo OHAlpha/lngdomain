@@ -1,8 +1,7 @@
-console.log('valid_unom.js: executing');
+console.log('valid_email.js: executing');
 <% if @valid %>
-    console.log('valid_unom.js: vaild unom');
-    //$('#unomform').addClass('hidden');
-    $('#emailform').removeClass('hidden');
+    console.log('valid_email.js: vaild unom');
+    //$('#emailform').addClass('hidden');
     /*
     $('#unom-message').addClass('ok');
     $('#unom-message').text('user name available');
@@ -17,19 +16,20 @@ console.log('valid_unom.js: executing');
       });
     }, 2500);
     */
+    $('#newuserform').submit();
 <% else %>
-    console.log('valid_unom.js: invaild unom');
-    $('#unom-message').addClass('bad');
-    $('#unom-message').text('user name is unavailable');
+    console.log('valid_email.js: invaild email');
+    $('#email-message').addClass('bad');
+    $('#email-message').text('email is already in use');
     window.setTimeout(function() {
-      $('#unom-message').animate({opacity: 0},{
+      $('#email-message').animate({opacity: 0},{
         duration: 500,
         done: function() {
-          $('#unom-message').text('');
-          $('#unom-message').css('opacity', 1);
-          $('#unom-message').removeClass('bad');
+          $('#email-message').text('');
+          $('#email-message').css('opacity', 1);
+          $('#email-message').removeClass('bad');
         }
       });
     }, 2500);
 <% end %>
-console.log('valid_unom.js: executed');
+console.log('valid_email.js: executed');

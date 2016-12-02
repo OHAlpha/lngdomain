@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unom:</strong>
+  <%= @access_user_queue.unom %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @access_user_queue.email %>
+</p>
+
+<p>
+  <strong>Salt:</strong>
+  <%= @access_user_queue.salt %>
+</p>
+
+<p>
+  <strong>Iterations:</strong>
+  <%= @access_user_queue.iterations %>
+</p>
+
+<%= link_to 'Edit', edit_access_user_queue_path(@access_user_queue) %> |
+<%= link_to 'Back', access_user_queues_path %>

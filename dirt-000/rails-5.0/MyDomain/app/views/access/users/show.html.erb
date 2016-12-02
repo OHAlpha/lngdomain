@@ -11,39 +11,34 @@
 </p>
 
 <p>
-  <strong>Salt:</strong>
-  <%= @access_user.salt %>
-</p>
-
-<p>
-  <strong>Hashkey:</strong>
-  <%= @access_user.hashkey %>
-</p>
-
-<p>
-  <strong>Iterations:</strong>
-  <%= @access_user.iterations %>
-</p>
-
-<p>
-  <strong>Passhash:</strong>
-  <%= @access_user.passhash %>
-</p>
-
-<p>
-  <strong>Fnom:</strong>
+  <strong>First Name:</strong>
   <%= @access_user.fnom %>
 </p>
 
 <p>
-  <strong>Mnoms:</strong>
+  <strong>Middle Name(s):</strong>
   <%= @access_user.mnoms %>
 </p>
 
 <p>
-  <strong>Lnom:</strong>
+  <strong>Last Name:</strong>
   <%= @access_user.lnom %>
 </p>
 
-<%= link_to 'Edit', edit_access_user_path(@access_user) %> |
-<%= link_to 'Back', access_users_path %>
+<p>
+  <strong>Primary Color:</strong>
+  <div style="width: 50px; height: 50px; border: 1px solid black; background-color: <%= @access_user.pcol.color %>;"></div>
+</p>
+
+<p>
+  <strong>Secondary Color:</strong>
+  <div style="width: 50px; height: 50px; border: 1px solid black; background-color: <%= @access_user.scol.color %>;"></div>
+</p>
+
+<p>
+  <strong>Tertiary Color:</strong>
+  <div style="width: 50px; height: 50px; border: 1px solid black; background-color: <%= @access_user.tcol.color %>;"></div>
+</p>
+
+<%= link_to 'Settings', edit_user_path(@access_user) %> |
+<%= link_to 'Home', '/' %>

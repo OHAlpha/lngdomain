@@ -6,6 +6,9 @@
 
     <%= stylesheet_link_tag    'one_wolf', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'one_wolf', 'data-turbolinks-track': 'reload' %>
+    <script>
+<%= yield :script %>
+    </script>
   </head>
 
   <body class="vbox viewport">

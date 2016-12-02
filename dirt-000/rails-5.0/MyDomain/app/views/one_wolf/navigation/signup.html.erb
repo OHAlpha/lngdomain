@@ -1,28 +1,217 @@
 <% content_for :script do %>
-function clearBMessage(data) {
-  $('#bottom-message').text('');
+function validate_unom(event) {
+  var unom = $('#unom').val();
+  if( unom == '' ) {
+    event.preventDefault();
+    console.log('empty unom');
+    $('#unom-message').addClass('bad');
+    console.log('message class: bad');
+    $('#unom-message').text('required field');
+    console.log('message text: "required field"');
+    window.setTimeout(function() {
+      $('#unom-message').animate({opacity: 0},{
+        duration: 500,
+        done: function() {
+          $('#unom-message').text('');
+          $('#unom-message').css('opacity', 1);
+          $('#unom-message').removeClass('bad');
+        }
+      });
+    }, 2500);
+    return false;
+  }
+  $('#unom_v').val(unom);
   return true;
 }
+
+function validate_email(event) {
+  var email = $('#email').val();
+  if( email == '' ) {
+    event.preventDefault();
+    console.log('empty email');
+    $('#email-message').addClass('bad');
+    console.log('message class: bad');
+    $('#email-message').text('required field');
+    console.log('message text: "required field"');
+    window.setTimeout(function() {
+      $('#email-message').animate({opacity: 0},{
+        duration: 500,
+        done: function() {
+          $('#email-message').text('');
+          $('#email-message').css('opacity', 1);
+          $('#email-message').removeClass('bad');
+        }
+      });
+    }, 2500);
+    return false;
+  }
+  var confirm_email = $('#confirm_email').val();
+  if( confirm_email == '' ) {
+    event.preventDefault();
+    console.log('empty confirm_email');
+    $('#confirm-email-message').addClass('bad');
+    console.log('message class: bad');
+    $('#confirm-email-message').text('required field');
+    console.log('message text: "required field"');
+    window.setTimeout(function() {
+      $('#confirm-email-message').animate({opacity: 0},{
+        duration: 500,
+        done: function() {
+          $('#confirm-email-message').text('');
+          $('#confirm-email-message').css('opacity', 1);
+          $('#confirm-email-message').removeClass('bad');
+        }
+      });
+    }, 2500);
+    return false;
+  }
+  if( email != confirm_email ) {
+    event.preventDefault();
+    console.log('empty confirm_email');
+    $('#confirm-email-message').addClass('bad');
+    console.log('message class: bad');
+    $('#confirm-email-message').text('emails do not match');
+    console.log('message text: "required field"');
+    window.setTimeout(function() {
+      $('#confirm-email-message').animate({opacity: 0},{
+        duration: 500,
+        done: function() {
+          $('#confirm-email-message').text('');
+          $('#confirm-email-message').css('opacity', 1);
+          $('#confirm-email-message').removeClass('bad');
+        }
+      });
+    }, 2500);
+    return false;
+  }
+  $('#email_v').val(email);
+  return true;
+}
+
+function validate_password(event) {
+  var password = $('#password').val();
+  if( password == '' ) {
+    event.preventDefault();
+    console.log('empty password');
+    $('#password-message').addClass('bad');
+    console.log('message class: bad');
+    $('#password-message').text('required field');
+    console.log('message text: "required field"');
+    window.setTimeout(function() {
+      $('#password-message').animate({opacity: 0},{
+        duration: 500,
+        done: function() {
+          $('#password-message').text('');
+          $('#password-message').css('opacity', 1);
+          $('#password-message').removeClass('bad');
+        }
+      });
+    }, 2500);
+    return false;
+  }
+  var confirm_password = $('#confirm_password').val();
+  if( confirm_password == '' ) {
+    event.preventDefault();
+    console.log('empty confirm_password');
+    $('#confirm-password-message').addClass('bad');
+    console.log('message class: bad');
+    $('#confirm-password-message').text('required field');
+    console.log('message text: "required field"');
+    window.setTimeout(function() {
+      $('#confirm-password-message').animate({opacity: 0},{
+        duration: 500,
+        done: function() {
+          $('#confirm-password-message').text('');
+          $('#confirm-password-message').css('opacity', 1);
+          $('#confirm-password-message').removeClass('bad');
+        }
+      });
+    }, 2500);
+    return false;
+  }
+  if( password != confirm_password ) {
+    event.preventDefault();
+    console.log('empty confirm_password');
+    $('#confirm-password-message').addClass('bad');
+    console.log('message class: bad');
+    $('#confirm-password-message').text('passwords do not match');
+    console.log('message text: "required field"');
+    window.setTimeout(function() {
+      $('#confirm-password-message').animate({opacity: 0},{
+        duration: 500,
+        done: function() {
+          $('#confirm-password-message').text('');
+          $('#confirm-password-message').css('opacity', 1);
+          $('#confirm-password-message').removeClass('bad');
+        }
+      });
+    }, 2500);
+    return false;
+  }
+  $('#id_v').val($('#id').val());
+  $('#passhash').value = toHex(forge.pkcs5.pbkdf2(password, $('#salt').val(), parseInt($('#iterations').val()), 64, forge.md.sha512.create()));
+  $('#password').val('');
+  $('#confirm_password').val('');
+  return true;
+}
+
+$(document).ready(function() {
+  $('#unomform').on('submit',validate_unom);
+  $('#emailform').on('submit',validate_email);
+  $('#passwordform').on('submit',validate_password);
+});
 <% end %>
 
-<%= form_tag( access_valid_unom_path, remote: true, id: 'unomform', onsubmit: 'return validate_unom(this);' ) do %>
-  <%= label_tag(:q, "User Name:") %>
-  <%= text_field_tag( :unom, '' ) %>
-  <%= submit_tag( 'Next', id: 'check_unom' ) %>
+<%= form_tag( access_valid_unom_path, remote: true, id: 'unomform' ) do %>
+<table>
+  <tr>
+    <td><%= label_tag(:q, "User Name:") %></td>
+    <td><%= text_field_tag( :unom, '' ) %></td>
+    <td><p id="unom-message" class="message"></p></td>
+  </tr>
+  <tr>
+    <td><%= submit_tag( 'Next', id: 'check_unom' ) %></td>
+  </tr>
+</table>
 <% end %>
-<%= form_tag( access_valid_email_path, remote: true, id: 'emailform', onsubmit: 'return validate_email(this);' ) do %>
-  <%= label_tag(:q, "Email:") %>
-  <%= text_field_tag( :email, '' ) %>
-  <%= label_tag(:q, "Confirm Email:") %>
-  <%= text_field_tag( :confirm_email, '' ) %>
-  <%= submit_tag( 'Next', id: 'check_email' ) %>
+<%= form_tag( access_valid_email_path, remote: true, id: 'emailform', class: 'hidden' ) do %>
+<table>
+  <tr>
+    <td><%= label_tag(:q, "Email:") %></td>
+    <td><%= text_field_tag( :email, '' ) %></td>
+    <td><p id="email-message" class="message"></p></td>
+  </tr>
+  <tr>
+    <td><%= label_tag(:q, "Confirm Email:") %></td>
+    <td><%= text_field_tag( :confirm_email, '' ) %></td>
+    <td><p id="confirm-email-message" class="message"></p></td>
+  </tr>
+  <tr>
+    <td><%= submit_tag( 'Next', id: 'check_email' ) %></td>
+  </tr>
+</table>
 <% end %>
-<%= form_tag( access_valid_email_path, remote: true, id: 'passwordform', onsubmit: 'return validate_password(this);' ) do %>
-  <%= label_tag(:q, "Password:") %>
-  <%= password_field_tag( :password, '' ) %>
-  <%= label_tag(:q, "Confirm Password:") %>
-  <%= password_field_tag( :confirm_password, '' ) %>
-  <%= hidden_field_tag(:id, '') %>
-  <%= hidden_field_tag(:salt, '') %>
-  <%= submit_tag( 'Register', id: 'register' ) %>
+<%= form_tag( access_new_user_path, remote: true, id: 'newuserform', class: 'hidden' ) do %>
+<%= hidden_field_tag(:unom_v, '') %><%= hidden_field_tag(:email_v, '') %>
+<% end %>
+<%= form_tag( '#', remote: true, id: 'secretsform', class: 'hidden' ) do %>
+<%= hidden_field_tag(:id, '') %><%= hidden_field_tag(:salt, '') %><%= hidden_field_tag(:iterations, '') %>
+<% end %>
+<%= form_tag( access_register_path, remote: true, id: 'passwordform', class: 'hidden' ) do %>
+<table>
+  <tr>
+    <td><%= label_tag(:q, "Password:") %></td>
+    <td><%= password_field_tag( :password, '' ) %>
+    <td><p id="password-message" class="message"></p></td>
+  </tr>
+  <tr>
+    <td><%= label_tag(:q, "Confirm Password:") %></td>
+    <td><%= password_field_tag( :confirm_password, '' ) %>
+    <td><p id="password-email-message" class="message"></p></td>
+  </tr>
+  <tr>
+    <td><%= hidden_field_tag(:id_v, '') %><%= hidden_field_tag(:passhash, '') %>
+    <%= submit_tag( 'Register', id: 'register' ) %></td>
+  </tr>
+</table>
 <% end %>

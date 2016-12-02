@@ -61,6 +61,9 @@ class OneWolf::NavigationController < ApplicationController
     @user = Access::User.new
   end
 
+  def welcome
+  end
+
   def signin
   end
 
