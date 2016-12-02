@@ -1,0 +1,1 @@
+json.array! @access_users, partial: 'access_users/access_user', as: :access_user

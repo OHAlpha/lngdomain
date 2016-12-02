@@ -1,39 +1,51 @@
 Rails.application.routes.draw do
   
+  namespace :access do
+    resources :users
+  end
+  get 'access/valid_unom'
+
+  get 'access/valid_email'
+
+  get 'access/new_user'
+
+  get 'access/cancel_new_user'
+
+  get 'access/register'
+
+  get 'access/user_salt'
+
+  get 'access/login'
+
+  get 'access/logout'
+
+  get 'access/unregister'
+
   @forced_url = nil
   
-  def nav(only = [])
+  def nav(*only)
     get 'home',      to: 'navigation#home'
-    get 'about',     to: 'navigation#about'
-    get 'contact',   to: 'navigation#contact'
-    get 'feedback',  to: 'navigation#feedback'
-    get 'calendar',  to: 'navigation#calendar'
-    get 'popular',   to: 'navigation#popular'
-    get 'recent',    to: 'navigation#recent'
-    get 'news',      to: 'navigation#news'
-    get 'faq',       to: 'navigation#faq'
-    get 'index',     to: 'navigation#index'
-    get 'sitemap',   to: 'navigation#sitemap'
-    get 'search',    to: 'navigation#search'
-    get 'results',   to: 'navigation#results'
-    get 'links',     to: 'navigation#links'
-    get 'policy',    to: 'navigation#policy'
-    get 'privacy',   to: 'navigation#privacy'
-    get 'copyright', to: 'navigation#copyright'
-    get 'subscribe', to: 'navigation#subscribe'
-    get 'services',  to: 'navigation#services'
-    get 'products',  to: 'navigation#products'
-    get 'portfolio', to: 'navigation#portfolio'
-    get 'resources', to: 'navigation#resources'
-    get 'store',     to: 'navigation#store'
-    get 'blog',      to: 'navigation#blog'
-    get 'gallery',   to: 'navigation#gallery'
-    get 'media',     to: 'navigation#media'
+    [
+      'about','contaact','feedback','faq',
+      'popular','recent','news','calendar',
+      'index','sitemap','search','links',
+      'policy','privacy','copyright',
+      'subscribe','join','signup','signin','signout','leave',
+      'services','products','portfolio','resources','store','blog','gallery','media',
+    ].each do |path|
+      get path, to: 'navigation#'+path if only.include? path
+    end
+    [
+      'results',
+      'subscribe',
+    ].each do |path|
+      post path, to: 'navigation#'+path if only.include? path
+    end
   end
   
   scope module: 'one_wolf' do
     root 'navigation#home'
-    nav only: ['home','about']
+    nav 'home','about','join'
     get 'games', to: 'games#home'
   end
   

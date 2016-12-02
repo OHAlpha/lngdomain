@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unom:</strong>
+  <%= @access_user.unom %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @access_user.email %>
+</p>
+
+<p>
+  <strong>Salt:</strong>
+  <%= @access_user.salt %>
+</p>
+
+<p>
+  <strong>Hashkey:</strong>
+  <%= @access_user.hashkey %>
+</p>
+
+<p>
+  <strong>Iterations:</strong>
+  <%= @access_user.iterations %>
+</p>
+
+<p>
+  <strong>Passhash:</strong>
+  <%= @access_user.passhash %>
+</p>
+
+<p>
+  <strong>Fnom:</strong>
+  <%= @access_user.fnom %>
+</p>
+
+<p>
+  <strong>Mnoms:</strong>
+  <%= @access_user.mnoms %>
+</p>
+
+<p>
+  <strong>Lnom:</strong>
+  <%= @access_user.lnom %>
+</p>
+
+<%= link_to 'Edit', edit_access_user_path(@access_user) %> |
+<%= link_to 'Back', access_users_path %>

@@ -58,6 +58,7 @@ class OneWolf::NavigationController < ApplicationController
   end
 
   def signup
+    @user = Access::User.new
   end
 
   def signin

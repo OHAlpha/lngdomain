@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unom: MyString
+  email: MyString
+  salt: MyString
+  hashkey: MyString
+  iterations: 1
+  passhash: MyString
+  fnom: MyString
+  mnoms: MyString
+  lnom: MyString
+
+two:
+  unom: MyString
+  email: MyString
+  salt: MyString
+  hashkey: MyString
+  iterations: 1
+  passhash: MyString
+  fnom: MyString
+  mnoms: MyString
+  lnom: MyString

@@ -1,2 +1,28 @@
-<h1>OneWolf::Navigation#signup</h1>
-<p>Find me in app/views/one_wolf/navigation/signup.html.erb</p>
+<% content_for :script do %>
+function clearBMessage(data) {
+  $('#bottom-message').text('');
+  return true;
+}
+<% end %>
+
+<%= form_tag( access_valid_unom_path, remote: true, id: 'unomform', onsubmit: 'return validate_unom(this);' ) do %>
+  <%= label_tag(:q, "User Name:") %>
+  <%= text_field_tag( :unom, '' ) %>
+  <%= submit_tag( 'Next', id: 'check_unom' ) %>
+<% end %>
+<%= form_tag( access_valid_email_path, remote: true, id: 'emailform', onsubmit: 'return validate_email(this);' ) do %>
+  <%= label_tag(:q, "Email:") %>
+  <%= text_field_tag( :email, '' ) %>
+  <%= label_tag(:q, "Confirm Email:") %>
+  <%= text_field_tag( :confirm_email, '' ) %>
+  <%= submit_tag( 'Next', id: 'check_email' ) %>
+<% end %>
+<%= form_tag( access_valid_email_path, remote: true, id: 'passwordform', onsubmit: 'return validate_password(this);' ) do %>
+  <%= label_tag(:q, "Password:") %>
+  <%= password_field_tag( :password, '' ) %>
+  <%= label_tag(:q, "Confirm Password:") %>
+  <%= password_field_tag( :confirm_password, '' ) %>
+  <%= hidden_field_tag(:id, '') %>
+  <%= hidden_field_tag(:salt, '') %>
+  <%= submit_tag( 'Register', id: 'register' ) %>
+<% end %>

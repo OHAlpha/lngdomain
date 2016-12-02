@@ -1,0 +1,1 @@
+json.partial! "access_users/access_user", access_user: @access_user
