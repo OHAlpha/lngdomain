@@ -27,6 +27,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'pbkdf2', '~> 0.1.0'
+
+gem 'carrierwave', '~> 0.10.0'
+
+gem 'mime-types', '~> 2.6', '>= 2.6.2'
+
 group :assets do
   gem 'ejs'
   gem 'jade-rails', '1.9.2'

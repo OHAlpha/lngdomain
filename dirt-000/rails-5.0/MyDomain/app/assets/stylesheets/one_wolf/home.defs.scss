@@ -1,0 +1,38 @@
+@import 'navigation.defs.scss';
+
+$num_tiles: 9;
+
+$skew-angle: 89deg - 360deg / $num_tiles;
+$angle: 90deg - 360deg / $num_tiles;
+$shrink: 1 / sqrt( 1 + sin($angle));
+
+$piece-opacity: .6;
+
+$colors: rgba($rgba-beta-0, $piece-opacity),
+rgba($rgba-alpha-0, $piece-opacity),
+rgba($rgba-gamma-0, $piece-opacity),
+rgba($rgba-epsilon-0, $piece-opacity),
+rgba($rgba-delta-0, $piece-opacity),
+rgba($rgba-zeta-0, $piece-opacity),
+rgba($rgba-theta-0, $piece-opacity),
+rgba($rgba-eta-0, $piece-opacity),
+rgba($rgba-iota-0, $piece-opacity);
+
+$container-size: 500px;
+
+$tool-size: 100px;
+
+$toolcontainer-size: $container-size + 2 * $tool-size + 30px;
+
+$piece-size: $container-size / 2;
+
+$icon-size: 30px;
+$icon-right: $piece-size / 2;
+$icon-bottom: $icon-right;
+$icon-round-right: $icon-right * $shrink;
+$icon-round-bottom: $icon-round-right * cos($angle);
+
+$dot-size: $container-size / 4;
+$dot-size: $piece-size / 2 * sqrt(8);
+$dot-shift: 65px;
+$dot-bgcol: rgba(208, 208, 208, 1);

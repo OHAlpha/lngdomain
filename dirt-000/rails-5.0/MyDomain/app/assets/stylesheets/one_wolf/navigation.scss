@@ -1,3 +1,27 @@
-// Place all the styles related to the OneWolf::Navigation controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import '../math.scss';
+@import 'palette.scss';
+@import 'navigation.defs.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bgcol;
+  font-family: "Raleway";
+  color: #ddd;
+  a {
+    color: #88f;
+    &:visited {
+      color: #c8f;
+    }
+    &:active {
+      color: #f44;
+    }
+    &:hover {
+      color: #f88;
+    }
+  }
+}

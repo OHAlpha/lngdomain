@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'one_wolf/navigation#home'
+  
   @forced_url = nil
   
-  def nav
+  def nav(only = [])
     get 'home',      to: 'navigation#home'
     get 'about',     to: 'navigation#about'
     get 'contact',   to: 'navigation#contact'
@@ -29,6 +29,12 @@ Rails.application.routes.draw do
     get 'blog',      to: 'navigation#blog'
     get 'gallery',   to: 'navigation#gallery'
     get 'media',     to: 'navigation#media'
+  end
+  
+  scope module: 'one_wolf' do
+    root 'navigation#home'
+    nav only: ['home','about']
+    get 'games', to: 'games#home'
   end
   
   constraints Constraints::DomainConstraint.new('dev',MyDomain.domains[:dev_domain],@forced_url) do

@@ -11,3 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( one_wolf_home.js )
 Rails.application.config.assets.precompile += %w( one_wolf_home.css )
+Rails.application.config.assets.precompile += %w( one_wolf.js )
+Rails.application.config.assets.precompile += %w( one_wolf.css )
