@@ -1,0 +1,2 @@
+OneWolf::Services::Game.create name: 'Jeopardy', url: 'jeopardy', description: '', rules: ''
+OneWolf::Services::Game.create name: 'Wheel of Fortune', url: 'wheel-of-fortune', description: '', rules: ''

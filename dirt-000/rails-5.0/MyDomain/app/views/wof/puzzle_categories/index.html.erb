@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wof Puzzle Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wof_puzzle_categories.each do |wof_puzzle_category| %>
+      <tr>
+        <td><%= wof_puzzle_category.name %></td>
+        <td><%= wof_puzzle_category.description %></td>
+        <td><%= link_to 'Show', wof_puzzle_category %></td>
+        <td><%= link_to 'Edit', edit_wof_puzzle_category_path(wof_puzzle_category) %></td>
+        <td><%= link_to 'Destroy', wof_puzzle_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wof Puzzle Category', new_wof_puzzle_category_path %>

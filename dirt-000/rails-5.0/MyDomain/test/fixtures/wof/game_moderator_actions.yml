@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game: one
+  game_puzzle: one
+  game_user: one
+  game_action: one
+  kind: MyString
+  score: 1
+  details: MyText
+  sequence: 1
+
+two:
+  game: two
+  game_puzzle: two
+  game_user: two
+  game_action: two
+  kind: MyString
+  score: 1
+  details: MyText
+  sequence: 1

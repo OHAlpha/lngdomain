@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @wof_game_action.game %>
+</p>
+
+<p>
+  <strong>Game puzzle:</strong>
+  <%= @wof_game_action.game_puzzle %>
+</p>
+
+<p>
+  <strong>Game user:</strong>
+  <%= @wof_game_action.game_user %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @wof_game_action.kind %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @wof_game_action.score %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @wof_game_action.details %>
+</p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @wof_game_action.sequence %>
+</p>
+
+<%= link_to 'Edit', edit_wof_game_action_path(@wof_game_action) %> |
+<%= link_to 'Back', wof_game_actions_path %>

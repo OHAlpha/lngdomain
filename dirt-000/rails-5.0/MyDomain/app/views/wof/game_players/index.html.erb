@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wof Game Players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>User</th>
+      <th>Position</th>
+      <th>Score</th>
+      <th>State</th>
+      <th>Status</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wof_game_players.each do |wof_game_player| %>
+      <tr>
+        <td><%= wof_game_player.game %></td>
+        <td><%= wof_game_player.user %></td>
+        <td><%= wof_game_player.position %></td>
+        <td><%= wof_game_player.score %></td>
+        <td><%= wof_game_player.state %></td>
+        <td><%= wof_game_player.status %></td>
+        <td><%= wof_game_player.details %></td>
+        <td><%= link_to 'Show', wof_game_player %></td>
+        <td><%= link_to 'Edit', edit_wof_game_player_path(wof_game_player) %></td>
+        <td><%= link_to 'Destroy', wof_game_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wof Game Player', new_wof_game_player_path %>

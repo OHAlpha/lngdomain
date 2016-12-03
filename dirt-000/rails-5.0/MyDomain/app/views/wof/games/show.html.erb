@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @wof_game.name %>
+</p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @wof_game.sequence %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @wof_game.state %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @wof_game.status %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @wof_game.details %>
+</p>
+
+<%= link_to 'Edit', edit_wof_game_path(@wof_game) %> |
+<%= link_to 'Back', wof_games_path %>

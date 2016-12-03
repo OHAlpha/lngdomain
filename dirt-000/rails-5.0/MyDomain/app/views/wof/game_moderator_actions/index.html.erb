@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wof Game Moderator Actions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Game puzzle</th>
+      <th>Game user</th>
+      <th>Game action</th>
+      <th>Kind</th>
+      <th>Score</th>
+      <th>Details</th>
+      <th>Sequence</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wof_game_moderator_actions.each do |wof_game_moderator_action| %>
+      <tr>
+        <td><%= wof_game_moderator_action.game %></td>
+        <td><%= wof_game_moderator_action.game_puzzle %></td>
+        <td><%= wof_game_moderator_action.game_user %></td>
+        <td><%= wof_game_moderator_action.game_action %></td>
+        <td><%= wof_game_moderator_action.kind %></td>
+        <td><%= wof_game_moderator_action.score %></td>
+        <td><%= wof_game_moderator_action.details %></td>
+        <td><%= wof_game_moderator_action.sequence %></td>
+        <td><%= link_to 'Show', wof_game_moderator_action %></td>
+        <td><%= link_to 'Edit', edit_wof_game_moderator_action_path(wof_game_moderator_action) %></td>
+        <td><%= link_to 'Destroy', wof_game_moderator_action, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wof Game Moderator Action', new_wof_game_moderator_action_path %>

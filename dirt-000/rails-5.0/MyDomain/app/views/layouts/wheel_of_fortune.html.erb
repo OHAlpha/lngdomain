@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OneWolf.com</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'one_wolf_games', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'one_wolf_games', 'data-turbolinks-track': 'reload' %>
+    <script>
+<%= yield :script %>
+    </script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

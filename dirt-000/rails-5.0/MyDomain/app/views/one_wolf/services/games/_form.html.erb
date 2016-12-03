@@ -1,0 +1,32 @@
+<%= form_for(one_wolf_services_game) do |f| %>
+  <% if one_wolf_services_game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(one_wolf_services_game.errors.count, "error") %> prohibited this one_wolf_services_game from being saved:</h2>
+
+      <ul>
+      <% one_wolf_services_game.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rules %>
+    <%= f.text_area :rules %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

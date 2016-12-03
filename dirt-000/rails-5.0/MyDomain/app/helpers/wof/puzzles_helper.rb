@@ -1,0 +1,2 @@
+module Wof::PuzzlesHelper
+end

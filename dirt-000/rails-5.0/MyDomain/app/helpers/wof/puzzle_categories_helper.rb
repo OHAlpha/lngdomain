@@ -1,0 +1,2 @@
+module Wof::PuzzleCategoriesHelper
+end

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>One Wolf Services Games</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Rules</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @one_wolf_services_games.each do |one_wolf_services_game| %>
+      <tr>
+        <td><%= one_wolf_services_game.name %></td>
+        <td><%= one_wolf_services_game.description %></td>
+        <td><%= one_wolf_services_game.rules %></td>
+        <td><%= link_to 'Show', game_path(one_wolf_services_game) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

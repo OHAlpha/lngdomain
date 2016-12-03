@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= link_to @one_wolf_services_game.name, "/play/#{@one_wolf_services_game.url}" %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @one_wolf_services_game.description %>
+</p>
+
+<p>
+  <strong>Rules:</strong>
+  <%= @one_wolf_services_game.rules %>
+</p>
+
+<%= link_to 'Play', "/play/#{@one_wolf_services_game.url}" %> |
+<%= link_to 'Back', games_path %>

@@ -1,0 +1,1 @@
+json.array! @wof_games, partial: 'wof_games/wof_game', as: :wof_game

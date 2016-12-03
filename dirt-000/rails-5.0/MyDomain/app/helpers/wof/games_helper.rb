@@ -1,0 +1,2 @@
+module Wof::GamesHelper
+end

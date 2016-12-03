@@ -1,0 +1,1 @@
+json.partial! "wof_game_moderator_actions/wof_game_moderator_action", wof_game_moderator_action: @wof_game_moderator_action

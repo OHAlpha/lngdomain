@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @wof_puzzle_category.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @wof_puzzle_category.description %>
+</p>
+
+<%= link_to 'Edit', edit_wof_puzzle_category_path(@wof_puzzle_category) %> |
+<%= link_to 'Back', wof_puzzle_categories_path %>

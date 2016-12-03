@@ -1,0 +1,1 @@
+json.partial! "wof_category_puzzles/wof_category_puzzle", wof_category_puzzle: @wof_category_puzzle

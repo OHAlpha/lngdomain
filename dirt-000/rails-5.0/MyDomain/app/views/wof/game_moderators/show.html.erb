@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @wof_game_moderator.game %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @wof_game_moderator.user %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @wof_game_moderator.role %>
+</p>
+
+<%= link_to 'Edit', edit_wof_game_moderator_path(@wof_game_moderator) %> |
+<%= link_to 'Back', wof_game_moderators_path %>

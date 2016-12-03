@@ -1,0 +1,1 @@
+json.partial! "wof_games/wof_game", wof_game: @wof_game

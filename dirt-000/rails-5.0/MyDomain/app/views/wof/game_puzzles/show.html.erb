@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @wof_game_puzzle.game %>
+</p>
+
+<p>
+  <strong>Puzzle:</strong>
+  <%= @wof_game_puzzle.puzzle %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @wof_game_puzzle.role %>
+</p>
+
+<%= link_to 'Edit', edit_wof_game_puzzle_path(@wof_game_puzzle) %> |
+<%= link_to 'Back', wof_game_puzzles_path %>

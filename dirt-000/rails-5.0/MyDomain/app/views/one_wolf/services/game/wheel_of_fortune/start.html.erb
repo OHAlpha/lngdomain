@@ -1,0 +1,51 @@
+<%= form_for @game, method: 'POST', url: wheel_of_fortune_starting_path do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this @game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :sequence, value: '0' %>
+  <%= f.hidden_field :state, value: '0' %>
+  <%= f.hidden_field :status, value: '' %>
+  <%= f.hidden_field :details, value: '{}' %>
+  
+  <div class="fields">
+    <%= f.fields_for :player_1_link do |p1| %>
+      <div class="field">
+        <%#= f.hidden_field :position, value: '1' %>
+        <%= p1.label :user_id, 'Player 1: ' %>
+        <%= p1.collection_select(:user_id, Access::User.all, :id, :dnom) %>
+      </div>
+    <% end %>
+    <%= f.fields_for :player_2_link do |p1| %>
+      <div class="field">
+        <%#= f.hidden_field :position, value: '2' %>
+        <%= f.label :user_id, 'Player 2: ' %>
+        <%= p1.collection_select(:user_id, Access::User.all, :id, :dnom) %>
+      </div>
+    <% end %>
+    <%= f.fields_for :player_3_link do |p1| %>
+      <div class="field">
+        <%#= f.hidden_field :position, value: '3' %>
+        <%= f.label :user_id, 'Player 3: ' %>
+        <%= p1.collection_select(:user_id, Access::User.all, :id, :dnom) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

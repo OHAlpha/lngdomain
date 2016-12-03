@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  puzzle: one
+  word: MyString
+  orientation: MyString
+  row: 1
+  column: 1
+
+two:
+  puzzle: two
+  word: MyString
+  orientation: MyString
+  row: 1
+  column: 1

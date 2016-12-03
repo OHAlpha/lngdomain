@@ -1,0 +1,52 @@
+<%= form_for(wof_game_action) do |f| %>
+  <% if wof_game_action.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wof_game_action.errors.count, "error") %> prohibited this wof_game_action from being saved:</h2>
+
+      <ul>
+      <% wof_game_action.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :game_id %>
+    <%= f.text_field :game_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :game_puzzle_id %>
+    <%= f.text_field :game_puzzle_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :game_user_id %>
+    <%= f.text_field :game_user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kind %>
+    <%= f.text_field :kind %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score %>
+    <%= f.number_field :score %>
+  </div>
+
+  <div class="field">
+    <%= f.label :details %>
+    <%= f.text_area :details %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sequence %>
+    <%= f.number_field :sequence %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

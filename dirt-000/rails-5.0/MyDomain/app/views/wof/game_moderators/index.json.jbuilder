@@ -1,0 +1,1 @@
+json.array! @wof_game_moderators, partial: 'wof_game_moderators/wof_game_moderator', as: :wof_game_moderator

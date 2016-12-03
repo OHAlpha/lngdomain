@@ -1,0 +1,1 @@
+json.array! @wof_puzzles, partial: 'wof_puzzles/wof_puzzle', as: :wof_puzzle

@@ -1,0 +1,1 @@
+json.array! @one_wolf_services_games, partial: 'one_wolf_services_games/one_wolf_services_game', as: :one_wolf_services_game

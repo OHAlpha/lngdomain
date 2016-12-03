@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wof Puzzles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Puzzle</th>
+      <th>Kind</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wof_puzzles.each do |wof_puzzle| %>
+      <tr>
+        <td><%= wof_puzzle.puzzle %></td>
+        <td><%= wof_puzzle.kind %></td>
+        <td><%= link_to 'Show', wof_puzzle %></td>
+        <td><%= link_to 'Edit', edit_wof_puzzle_path(wof_puzzle) %></td>
+        <td><%= link_to 'Destroy', wof_puzzle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wof Puzzle', new_wof_puzzle_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Puzzle:</strong>
+  <%= @wof_puzzle.puzzle %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @wof_puzzle.kind %>
+</p>
+
+<%= link_to 'Edit', edit_wof_puzzle_path(@wof_puzzle) %> |
+<%= link_to 'Back', wof_puzzles_path %>

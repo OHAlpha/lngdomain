@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wof Puzzle Words</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Puzzle</th>
+      <th>Word</th>
+      <th>Orientation</th>
+      <th>Row</th>
+      <th>Column</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wof_puzzle_words.each do |wof_puzzle_word| %>
+      <tr>
+        <td><%= wof_puzzle_word.puzzle %></td>
+        <td><%= wof_puzzle_word.word %></td>
+        <td><%= wof_puzzle_word.orientation %></td>
+        <td><%= wof_puzzle_word.row %></td>
+        <td><%= wof_puzzle_word.column %></td>
+        <td><%= link_to 'Show', wof_puzzle_word %></td>
+        <td><%= link_to 'Edit', edit_wof_puzzle_word_path(wof_puzzle_word) %></td>
+        <td><%= link_to 'Destroy', wof_puzzle_word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wof Puzzle Word', new_wof_puzzle_word_path %>

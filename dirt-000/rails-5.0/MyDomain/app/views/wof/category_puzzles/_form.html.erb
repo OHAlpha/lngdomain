@@ -1,0 +1,27 @@
+<%= form_for(wof_category_puzzle) do |f| %>
+  <% if wof_category_puzzle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wof_category_puzzle.errors.count, "error") %> prohibited this wof_category_puzzle from being saved:</h2>
+
+      <ul>
+      <% wof_category_puzzle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :puzzle_category_id %>
+    <%= f.text_field :puzzle_category_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :puzzle_id %>
+    <%= f.text_field :puzzle_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Puzzle:</strong>
+  <%= @wof_puzzle_word.puzzle %>
+</p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @wof_puzzle_word.word %>
+</p>
+
+<p>
+  <strong>Orientation:</strong>
+  <%= @wof_puzzle_word.orientation %>
+</p>
+
+<p>
+  <strong>Row:</strong>
+  <%= @wof_puzzle_word.row %>
+</p>
+
+<p>
+  <strong>Column:</strong>
+  <%= @wof_puzzle_word.column %>
+</p>
+
+<%= link_to 'Edit', edit_wof_puzzle_word_path(@wof_puzzle_word) %> |
+<%= link_to 'Back', wof_puzzle_words_path %>

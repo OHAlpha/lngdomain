@@ -4,10 +4,10 @@ Rails.application.routes.draw do
     resource :user, path_names: { edit: 'settings' }
   end
   
+=begin
   namespace :access do
     resources :user_queues
   end
-=begin
   namespace :access do
     resources :user_queues
   end
@@ -50,10 +50,41 @@ Rails.application.routes.draw do
     end
   end
   
+  def play(controller,url=nil)
+    #root "#{controller}/home"
+    url = controller if url.nil?
+    get "#{url}", to: "#{controller}#home"
+    ['home','about','gameplay','stats','games','start'].each do |path|
+      get "#{url}/#{path}", to: "#{controller}##{path}"
+    end
+    post "#{url}/starting", to: "#{controller}#starting"
+    get "#{url}/play/:game_id", to: "#{controller}#play"
+  end
+  
   scope module: 'one_wolf' do
     root 'navigation#home'
     nav 'home','about','join', 'welcome', 'signup', 'signin', 'signout', 'leave'
-    get 'games', to: 'games#home'
+    scope module: 'services' do
+      resources :games, only: [:index,:show]
+      scope '/play', module: 'game' do
+        play 'jeopardy'
+        play 'wheel_of_fortune', 'wheel-of-fortune'
+      end
+    end
+  end
+  scope '/play/wheel_of_fortune', module: :wof do
+    resources :games
+  end
+  scope '/play/wheel_of_fortune/admin', module: :wof do
+    resources :game_moderator_actions
+    resources :game_actions
+    resources :game_puzzles
+    resources :puzzle_words
+    resources :category_puzzles
+    resources :puzzles
+    resources :puzzle_categories
+    resources :game_moderators
+    resources :game_players
   end
   
   constraints Constraints::DomainConstraint.new('dev',MyDomain.domains[:dev_domain],@forced_url) do

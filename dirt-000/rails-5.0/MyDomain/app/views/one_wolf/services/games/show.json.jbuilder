@@ -1,0 +1,1 @@
+json.partial! "one_wolf_services_games/one_wolf_services_game", one_wolf_services_game: @one_wolf_services_game
